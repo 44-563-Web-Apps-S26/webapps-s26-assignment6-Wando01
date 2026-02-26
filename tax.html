@@ -22,9 +22,61 @@
 
 </form>
 
-<p id="result">This text will be replaced</p>
+<p id="result">text</p>
+
+<form>
+    <input type="radio" id="power" name="operation"
+        value="exponent" onclick="chooseOp()">
+    <label for="power">Power</label><br>
+
+    <input type="radio" id="sum" name="operation"
+           value="add" onclick="chooseOp()">
+    <label for="sum">Sum</label><br>
+
+    <input type="radio" id="modu" name="operation"
+           value="mod" onclick="chooseOp()">
+    <label for="modu">Mod</label><br>
+</form>
+
+<p id="opResult">text</p>
 
 <script>
+
+function chooseOp() {
+
+    let income = Number(document.getElementById("income").value);
+    let baseRate = Number(document.getElementById("baseRate").value);
+
+    let radios = document.getElementsByName("operation");
+
+    let result = "";
+    let value = 0;
+
+    for (let i = 0; i < radios.length; i++) {
+
+        if (radios[i].checked) {
+
+            if (radios[i].value === "exponent") {
+                value = income ** baseRate;
+                result = income + " ^ " + baseRate + " is " + value;
+            }
+
+            else if (radios[i].value === "add") {
+                value = income + baseRate;
+                result = income + " + " + baseRate + " is " + value;
+            }
+
+            else if (radios[i].value === "mod") {
+                value = income % baseRate;
+                result = income + " % " + baseRate + " is " + value;
+            }
+
+        }
+    }
+
+    document.getElementById("opResult").innerHTML = result;
+}
+
 
 function doTax() {
     let income = Number(document.getElementById("income").value);
