@@ -17,10 +17,41 @@
 
 <p id="result">Caught: 0 | Got Away: 0</p>
 
+<div>
+    <img id="nutImage" src="almond.jpg" style="max-width: 100%; height:auto" width="150px" height="150px" onclick="updatePic()">
+</div>
+
+
 <script>
 
 let caught = 0;
 let gotAway = 0;
+let usePic = 1;
+
+function updatePic() {
+    
+    let image = document.getElementById("nutImage");
+
+    switch (usePic) {
+
+      case 1:
+        image.src = "pecan.jpg";
+        usePic = 2;
+        break;
+
+      case 2:
+        image.src = "walnut.jpg";
+        usePic = 3;
+        break;
+
+      case 3:
+        image.src = "almond.jpg";
+        usePic = 1;
+        break;
+    }
+}
+
+
 
 function checkVillain() {
 
