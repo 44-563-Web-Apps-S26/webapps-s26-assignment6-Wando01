@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pierce Travel Planner</title>
+</head>
+
+<body>
+
+<h2>Pierce travel planner</h2>
+
+<form>
+
+    <input type="checkbox" id="caribbean" value="True">
+    <label for="caribbean">Caribbean</label><br>
+
+    <input type="checkbox" id="mediterranean" value="True">
+    <label for="mediterranean">Mediterranean</label><br>
+
+    <input type="checkbox" id="baltic" value="False">
+    <label for="baltic">Baltic</label><br><br>
+
+    <input type="button" value="Cruise Choices" onclick="choices()">
+
+</form>
+
+<p id="result">Trip choices will appear here</p>
+
+<script>
+
+let my_trip = {};
+
+function choices() {
+    my_trip = {};
+
+    my_trip.cari = document.getElementById("caribbean").checked;
+    my_trip.medi = document.getElementById("mediterranean").checked;
+    my_trip.balt = document.getElementById("baltic").checked;
+
+    document.getElementById("result").innerHTML =
+        JSON.stringify(my_trip);
+}
+
+</script>
+
+</body>
+</html>
